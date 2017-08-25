@@ -34,12 +34,22 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public boolean add(Capitalist capitalist) {
+
+		Set<Capitalist> catelistSet = new HashSet<Capitalist>();
+		catelistSet.add(capitalist);
+
+    	hierarchy.put(capitalist.getParent(),catelistSet);
+
     	boolean status = false;
     	
-    	if(hSet.contains(capitalist)){
-    		status = false;
+    	/*if(hierarchy.containsKey(capitalist.getParent())){
+			catelistSet = hierarchy.get(capitalist.getParent());
+			if (catelistSet.contains(capitalist)) {
+				status = false;
+				return status;
+			}
     	}
-    	
+    	/*
     	if(capitalist.hasParent()){
     		FatCat cat = capitalist.getParent();
     		if(hSet.contains(cat)){
@@ -51,6 +61,7 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
 			hSet.add(capitalist);
 			status = true;
     	}
+    	*/
     	
     	return status;
     	
