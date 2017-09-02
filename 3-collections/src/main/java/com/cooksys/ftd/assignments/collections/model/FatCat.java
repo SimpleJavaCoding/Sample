@@ -4,19 +4,17 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class FatCat implements Capitalist {
 
-	private String name = null;
-	private int salary = 0;
-	private FatCat owner = null;
+	private String name; 
+	private int salary ;
+	private FatCat owner; 
 	
     public FatCat(String name, int salary) {
         super();
-    	this.name = name;
-    	this.salary = salary;
+    	
     }	
 
     public FatCat(String name, int salary, FatCat owner) {
-        this(name,salary);
-        this.owner = owner;
+        
     }
 
     /**
@@ -40,11 +38,7 @@ public class FatCat implements Capitalist {
      */
     @Override
     public boolean hasParent() {
-    	if(owner != null){
-    		return true;
-    	} else{
-    		return false;
-    	}
+    	
     }
 
     /**
@@ -52,7 +46,7 @@ public class FatCat implements Capitalist {
      */
     @Override
     public FatCat getParent() {
-    	return owner;
+    	
     }
 
     public FatCat getOwner() {
@@ -65,21 +59,10 @@ public class FatCat implements Capitalist {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        FatCat fatCat = (FatCat) o;
-
-        if (salary != fatCat.salary) return false;
-        if (name != null ? !name.equals(fatCat.name) : fatCat.name != null) return false;
-        return owner != null ? owner.equals(fatCat.owner) : fatCat.owner == null;
+       
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + salary;
-        result = 31 * result + (owner != null ? owner.hashCode() : 0);
-        return result;
-    }
+       
 }
